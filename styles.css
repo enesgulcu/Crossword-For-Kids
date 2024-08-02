@@ -117,8 +117,9 @@ body {
 
 #illustrator-icon {
     position: absolute;
-    bottom: 10px;
-    right: 0px;
-    width: 800px;
+    bottom: -5px;
+    right: 210px;
+    width: 220px;
     height: auto;
+    z-index: 10;
 }
