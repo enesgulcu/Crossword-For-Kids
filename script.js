@@ -18,10 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
     cell.classList.add('grid-cell');
     cell.dataset.index = i;
     gridContainer.appendChild(cell);
-
-    const startSound = document.getElementById('start-sound');
-    startSound.volume = 0.5;
-    startSound.play();
   }
 
   // Create the letters
