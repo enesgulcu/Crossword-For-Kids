@@ -9,58 +9,63 @@ const jsonData = [
 
 document.addEventListener('DOMContentLoaded', () => {
   const gridContainer = document.getElementById('grid-container');
-  const lettersContainer = document.getElementById('letters-container');
+  const lettersContainer = document.getElementById('letters');
+
 
   // Create the grid
   for (let i = 0; i < 15 * 15; i++) {
-      const cell = document.createElement('div');
-      cell.classList.add('grid-cell');
-      cell.dataset.index = i;
-      gridContainer.appendChild(cell);
+    const cell = document.createElement('div');
+    cell.classList.add('grid-cell');
+    cell.dataset.index = i;
+    gridContainer.appendChild(cell);
+
+    const startSound = document.getElementById('start-sound');
+    startSound.volume = 0.5;
+    startSound.play();
   }
 
   // Create the letters
   const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   for (let letter of alphabet) {
-      const letterDiv = document.createElement('div');
-      letterDiv.classList.add('letter');
-      letterDiv.innerText = letter;
-      letterDiv.draggable = true;
-      letterDiv.addEventListener('dragstart', dragStart);
-      lettersContainer.appendChild(letterDiv);
+    const letterDiv = document.createElement('div');
+    letterDiv.classList.add('letter');
+    letterDiv.innerText = letter;
+    letterDiv.draggable = true;
+    letterDiv.addEventListener('dragstart', dragStart);
+    lettersContainer.appendChild(letterDiv);
   }
 
   // Add event listeners for grid cells
   const gridCells = document.querySelectorAll('.grid-cell');
   gridCells.forEach(cell => {
-      cell.addEventListener('dragover', dragOver);
-      cell.addEventListener('drop', drop);
-      cell.addEventListener('click', removeLetter);
+    cell.addEventListener('dragover', dragOver);
+    cell.addEventListener('drop', drop);
+    cell.addEventListener('click', removeLetter);
   });
 
   // Populate the grid with placeholders for words and give hints
   jsonData.forEach((item) => {
-      const { word, x, y, direction } = item;
-      let row = y;
-      let col = x;
+    const { word, x, y, direction } = item;
+    let row = y;
+    let col = x;
 
-      for (let i = 0; i < word.length; i++) {
-          const index = row * 15 + col;
-          const cell = gridCells[index];
-          cell.classList.add('placeholder');
-          cell.dataset.letter = word[i];
+    for (let i = 0; i < word.length; i++) {
+      const index = row * 15 + col;
+      const cell = gridCells[index];
+      cell.classList.add('placeholder');
+      cell.dataset.letter = word[i];
 
-          if (i === Math.floor(word.length / 2)) { // Give hint in the middle of the word
-              cell.innerText = word[i];
-              cell.classList.add('hint');
-          }
-
-          if (direction === 'horizontal') {
-              col++;
-          } else if (direction === 'vertical') {
-              row++;
-          }
+      if (i === Math.floor(word.length / 2)) { // Give hint in the middle of the word
+        cell.innerText = word[i];
+        cell.classList.add('hint');
       }
+
+      if (direction === 'horizontal') {
+        col++;
+      } else if (direction === 'vertical') {
+        row++;
+      }
+    }
   });
 });
 
@@ -77,18 +82,31 @@ function drop(e) {
   const letter = e.dataTransfer.getData('text/plain');
   const target = e.target;
 
+  const correctSound = document.getElementById('correct-sound');
+  const incorrectSound = document.getElementById('incorrect-sound');
+
   if (target.classList.contains('placeholder') && !target.classList.contains('hint')) {
-      target.innerText = letter;
+    target.innerText = letter;
 
-      if (letter === target.dataset.letter) {
-          target.classList.add('correct');
-          target.classList.remove('incorrect');
-      } else {
-          target.classList.add('incorrect');
-          target.classList.remove('correct');
-      }
+    if (letter === target.dataset.letter) {
+      target.classList.add('correct');
+      target.classList.remove('incorrect');
 
-      target.dataset.userPlaced = 'true'; // Mark the cell as having a user-placed letter
+      // Doğru yerleştirme sesi çalar
+      correctSound.volume = 0.5;
+      correctSound.currentTime = 0;
+      correctSound.play();
+    } else {
+      target.classList.add('incorrect');
+      target.classList.remove('correct');
+
+      // Yanlış yerleştirme sesi çalar
+      incorrectSound.volume = 0.5;
+      incorrectSound.currentTime = 0;
+      incorrectSound.play();
+    }
+
+    target.dataset.userPlaced = 'true'; // Mark the cell as having a user-placed letter
   }
 }
 
@@ -96,8 +114,14 @@ function removeLetter(e) {
   const target = e.target;
 
   if (target.dataset.userPlaced === 'true' && !target.classList.contains('hint')) {
-      target.innerText = '';
-      target.classList.remove('correct', 'incorrect');
-      target.removeAttribute('data-userPlaced');
+    target.innerText = '';
+    target.classList.remove('correct', 'incorrect');
+    target.removeAttribute('data-userPlaced');
+
+    const removeSound = document.getElementById('remove-sound');
+    removeSound.volume = 0.5;
+    removeSound.currentTime = 0;
+    removeSound.play();
   }
 }
+

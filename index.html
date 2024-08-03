@@ -7,25 +7,42 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap-grid.min.css"
+        integrity="sha512-i1b/nzkVo97VN5WbEtaPebBG8REvjWeqNclJ6AItj7msdVcaveKrlIIByDpvjk5nwHjXkIqGZscVxOrTb9tsMA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Word Placement Game</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <div style="display: flex; flex-direction: column; justify-content: center;">
-        <div style="margin-top: 20px;">
-            <h2 style="text-align: center; font-size: 32px;">- CROSSWORD -</h2>
-            <h1 style="text-align: center; font-size: 48px;">TODAY IS A PUZZLE DAY</h1>
-        </div>
-        <div id="game-container">
-            <div id="grid-wrapper">
-                <div id="grid-container"></div>
+    <div class="container">
+        <div id="title-container" class="row mb-4 mt-4">
+            <div id="title-wrapper" class="col-12">
+                <h2 style="font-size: 36px;">- CROSSWORD -</h2>
+                <h1 style="font-size: 48px;">TODAY IS A PUZZLE DAY</h1>
             </div>
-            <div id="letters-container">
-                <img src="assets/illustrator-icon.png" alt="Illustrator Icon" id="illustrator-icon">
+        </div>
+        <div id="game-container" class="row">
+            <div id="grid-wrapper" class="col-xl-8">
+                <div id="grid-container">
+                </div>
+            </div>
+            <div id="letters-container" class="col-xl-4">
+                <div id="letters"></div>
             </div>
         </div>
     </div>
+    <!-- Ses Dosyaları -->
+    <audio id="start-sound" src="assets/start-sound.mp3"></audio>
+    <audio id="end-sound" src="assets/end-sound.mp3"></audio>
+    <audio id="remove-sound" src="assets/remove-sound.mp3"></audio>
+    <audio id="correct-sound" src="assets/correct-sound.mp3"></audio>
+    <audio id="incorrect-sound" src="assets/incorrect-sound.mp3"></audio>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"
+        integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="script.js"></script>
 </body>
 
