@@ -11,14 +11,66 @@ document.addEventListener('DOMContentLoaded', () => {
   const gridContainer = document.getElementById('grid-container');
   const lettersContainer = document.getElementById('letters');
 
+  let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
 
-  // Create the grid
-  for (let i = 0; i < 15 * 15; i++) {
+  // Kelimelerin kapladığı alanı hesapla
+  jsonData.forEach((item) => {
+    const { word, x, y, direction } = item;
+    if (direction === "horizontal") {
+      maxX = Math.max(maxX, x + word.length - 1);
+      minX = Math.min(minX, x);
+      minY = Math.min(minY, y);
+      maxY = Math.max(maxY, y);
+    } else {
+      maxY = Math.max(maxY, y + word.length - 1);
+      minY = Math.min(minY, y);
+      minX = Math.min(minX, x);
+      maxX = Math.max(maxX, x);
+    }
+  });
+
+  const gridWidth = maxX - minX + 1;
+  const gridHeight = maxY - minY + 1;
+
+  gridContainer.style.gridTemplateColumns = `repeat(${gridWidth}, 80px)`;
+  gridContainer.style.gridTemplateRows = `repeat(${gridHeight}, 80px)`;
+
+  // Create the grid cells
+  for (let i = 0; i < gridWidth * gridHeight; i++) {
     const cell = document.createElement('div');
     cell.classList.add('grid-cell');
-    cell.dataset.index = i;
     gridContainer.appendChild(cell);
   }
+
+  const gridCells = document.querySelectorAll('.grid-cell');
+
+  jsonData.forEach((item) => {
+    const { word, x, y, direction } = item;
+    let row = y - minY;
+    let col = x - minX;
+
+    for (let i = 0; i < word.length; i++) {
+      const index = row * gridWidth + col;
+
+      // Check if index is within bounds
+      if (index >= 0 && index < gridCells.length) {
+        const cell = gridCells[index];
+        cell.classList.add('placeholder');
+        cell.dataset.letter = word[i];
+
+        if (i === Math.floor(word.length / 2)) {
+          cell.innerText = word[i];
+          cell.classList.add('hint');
+        }
+
+        if (direction === 'horizontal') {
+          col++;
+        } else if (direction === 'vertical') {
+          row++;
+        }
+      }
+    }
+  });
 
   // Create the letters
   const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -32,37 +84,16 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Add event listeners for grid cells
-  const gridCells = document.querySelectorAll('.grid-cell');
   gridCells.forEach(cell => {
     cell.addEventListener('dragover', dragOver);
     cell.addEventListener('drop', drop);
     cell.addEventListener('click', removeLetter);
   });
 
-  // Populate the grid with placeholders for words and give hints
-  jsonData.forEach((item) => {
-    const { word, x, y, direction } = item;
-    let row = y;
-    let col = x;
-
-    for (let i = 0; i < word.length; i++) {
-      const index = row * 15 + col;
-      const cell = gridCells[index];
-      cell.classList.add('placeholder');
-      cell.dataset.letter = word[i];
-
-      if (i === Math.floor(word.length / 2)) { // Give hint in the middle of the word
-        cell.innerText = word[i];
-        cell.classList.add('hint');
-      }
-
-      if (direction === 'horizontal') {
-        col++;
-      } else if (direction === 'vertical') {
-        row++;
-      }
-    }
-  });
+  const cellSize = 80;
+  const padding = 20;
+  gridContainer.style.width = `${gridWidth * cellSize + padding}px`;
+  gridContainer.style.height = `${gridHeight * cellSize + padding}px`;
 });
 
 function dragStart(e) {
@@ -120,4 +151,3 @@ function removeLetter(e) {
     removeSound.play();
   }
 }
-
