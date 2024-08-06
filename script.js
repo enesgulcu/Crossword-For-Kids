@@ -32,8 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const gridWidth = maxX - minX + 1;
   const gridHeight = maxY - minY + 1;
 
-  gridContainer.style.gridTemplateColumns = `repeat(${gridWidth}, 80px)`;
-  gridContainer.style.gridTemplateRows = `repeat(${gridHeight}, 80px)`;
+  gridContainer.style.gridTemplateColumns = `repeat(${gridWidth}, 40px)`;
+  gridContainer.style.gridTemplateRows = `repeat(${gridHeight}, 40px)`;
 
   // Create the grid cells
   for (let i = 0; i < gridWidth * gridHeight; i++) {
