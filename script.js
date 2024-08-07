@@ -4,7 +4,7 @@ const jsonData = [
   { "word": "AY", "x": 7, "y": 4, "direction": "vertical" },
   { "word": "HAVA", "x": 10, "y": 1, "direction": "vertical" },
   { "word": "AGAC", "x": 6, "y": 3, "direction": "horizontal" },
-  { "word": "CİCEK", "x": 9, "y": 3, "direction": "vertical" }
+  { "word": "CİCEK", "x": 9, "y": 3, "direction": "vertical" },
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -32,8 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const gridWidth = maxX - minX + 1;
   const gridHeight = maxY - minY + 1;
 
-  gridContainer.style.gridTemplateColumns = `repeat(${gridWidth}, 40px)`;
-  gridContainer.style.gridTemplateRows = `repeat(${gridHeight}, 40px)`;
+  gridContainer.style.gridTemplateColumns = `repeat(${gridWidth}, 42px)`;
+  gridContainer.style.gridTemplateRows = `repeat(${gridHeight}, 42px)`;
 
   // Create the grid cells
   for (let i = 0; i < gridWidth * gridHeight; i++) {
