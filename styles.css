@@ -122,10 +122,8 @@ body {
     grid-template-columns: repeat(3, 1fr);
     gap: 12px;
     padding: 24px;
+    background-color: #8bc34a;
     box-sizing: border-box;
-    border-radius: 10px;
-    border: #965757 1px solid;
-    box-shadow: 4px 4px 8px hsla(18, 93%, 67%, 0.4);
 }
 
 .letter {
