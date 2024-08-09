@@ -6,8 +6,8 @@ const jsonData = [
   { "word": "AGAC", "x": 6, "y": 3, "direction": "horizontal" },
   { "word": "CİCEK", "x": 9, "y": 3, "direction": "vertical" },
   // { "word": "YAGMUR", "x": 11, "y": 6, "direction": "vertical" },
-  // { "word": "GUNES", "x": 1, "y": 1, "direction": "horizontal" },
-]
+  { "word": "GUNES", "x": 1, "y": 1, "direction": "horizontal" },
+];
 
 document.addEventListener('DOMContentLoaded', () => {
   const gridContainer = document.getElementById('grid-container');

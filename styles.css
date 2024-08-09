@@ -1,17 +1,15 @@
 body {
     display: flex;
     align-items: center;
-    margin: 0;
+    margin: 6px;
     padding: 0;
     background: url('assets/background.jpg') no-repeat center center fixed;
     background-size: cover;
     font-family: 'Indie Flower', cursive;
     font-weight: bold;
     min-height: 100vh;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     user-select: none;
+    min-width: 400px;
 }
 
 .container {
@@ -19,8 +17,6 @@ body {
     justify-content: center;
     flex-direction: column;
     width: 64%;
-    height: 100%;
-    min-width: 300px;
 }
 
 #title-container {
@@ -29,11 +25,9 @@ body {
     color: #ff6f61;
     padding: 10px;
     width: 100%;
-    height: 100%;
     text-align: center;
     position: relative;
 }
-
 
 .title {
     font-family: 'Dancing Script', cursive;
@@ -41,10 +35,8 @@ body {
     color: #ff6f61;
     font-weight: bold;
     margin-bottom: 10px;
-    text-align: center;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
-
 
 .subtitle {
     font-family: 'Dancing Script', cursive;
@@ -52,7 +44,6 @@ body {
     color: #ff6f61;
     font-weight: bold;
     margin-bottom: 20px;
-    text-align: center;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
@@ -74,7 +65,6 @@ body {
     width: 100%;
     height: 80px;
     text-align: center;
-    position: relative;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -86,7 +76,7 @@ body {
     background: #ffcc00;
     width: 100%;
     height: 100%;
-    padding: 24px;
+    padding: 16px;
     box-sizing: border-box;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -98,9 +88,9 @@ body {
     justify-content: center;
     align-items: center;
     height: 100%;
-    box-sizing: border-box;
     background-color: #739b97;
     border-radius: 10px;
+    padding: 12px;
     margin-right: 12px;
 }
 
@@ -108,22 +98,20 @@ body {
     display: grid;
     justify-content: center;
     align-content: center;
+    flex: 1;
     gap: 6px;
-    width: 100%;
-    height: 100%;
-    padding: 20px 20px;
+    /* width: 100%;
+    height: 100%; */
 }
 
 .grid-cell {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 20px;
-    background-size: cover;
-    background-position: center;
+    font-size: 16px;
     cursor: pointer;
     aspect-ratio: 1 / 1;
-    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    /* transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s; */
     border: 2px solid #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -157,12 +145,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    box-sizing: border-box;
     background-color: #ffb3b3;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     margin-left: 12px;
-    padding: 8px;
+    padding: 12px;
 }
 
 #letters {
@@ -194,35 +181,28 @@ body {
     box-shadow: 0 0 12px rgba(255, 148, 114, 0.5);
 }
 
-
 @media (max-width: 1400px) {
     .container {
         width: 100%;
     }
 
     #grid-wrapper {
-        width: 100%;
-        height: 100%;
-        padding: 50px 50px;
+        flex: 2;
+        padding: 10px;
+        margin-bottom: 12px;
     }
 
     #letters-container {
-        margin-top: 0px;
-        margin-bottom: 0px;
+        flex: 0.5;
+        margin-left: 0;
+        padding: 12px;
     }
 
     #letters {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        padding: 12px;
-        gap: 6px;
-    }
-
-    .letter {
-        width: 40px;
-        height: 40px;
-        font-size: 20px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        box-sizing: border-box;
     }
 
     .title {
@@ -244,11 +224,22 @@ body {
     }
 
     #grid-wrapper {
-        width: 100%;
+        flex: 2;
+        padding: 10px;
+        margin-bottom: 12px;
+    }
+
+    #letters-container {
+        flex: 0.5;
+        margin-left: 0;
+        padding: 12px;
     }
 
     #letters {
-        gap: 6px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        box-sizing: border-box;
     }
 
     .letter {
@@ -276,17 +267,28 @@ body {
     }
 
     #grid-wrapper {
-        width: 100%;
+        flex: 1;
+        padding: 10px;
+        margin-bottom: 12px;
+    }
+
+    #letters-container {
+        flex: 1;
+        margin-left: 0;
+        padding: 18px;
     }
 
     #letters {
-        gap: 6px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
     }
 
     .letter {
-        width: 32px;
-        height: 32px;
-        font-size: 16px;
+        width: 36px;
+        height: 36px;
+        font-size: 18px;
     }
 
     .title {
@@ -308,17 +310,28 @@ body {
     }
 
     #grid-wrapper {
-        width: 100%;
+        flex: 1;
+        padding: 10px;
+        margin-bottom: 12px;
+    }
+
+    #letters-container {
+        flex: 1;
+        margin-left: 0;
+        padding: 12px;
     }
 
     #letters {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
         gap: 6px;
     }
 
     .letter {
-        width: 32px;
-        height: 32px;
-        font-size: 16px;
+        width: 36px;
+        height: 36px;
+        font-size: 18px;
     }
 
     .title {
