@@ -5,13 +5,15 @@ const jsonData = [
   { "word": "HAVA", "x": 10, "y": 1, "direction": "vertical" },
   { "word": "AGAC", "x": 6, "y": 3, "direction": "horizontal" },
   { "word": "CİCEK", "x": 9, "y": 3, "direction": "vertical" },
-  // { "word": "YAGMUR", "x": 11, "y": 6, "direction": "vertical" },
   { "word": "GUNES", "x": 1, "y": 1, "direction": "horizontal" },
+  { "word": "YAGMUR", "x": 1, "y": 10, "direction": "vertical" },
+  { "word": "TOPRAK", "x": 11, "y": 10, "direction": "horizontal" },
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
   const gridContainer = document.getElementById('grid-container');
   const lettersContainer = document.getElementById('letters');
+  const gridWrapper = document.getElementById('grid-wrapper')
 
   let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
 
@@ -91,19 +93,24 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   function adjustCellSize() {
-    const containerWidth = gridContainer.clientWidth;
-    const containerHeight = gridContainer.clientHeight;
+    const gridWrapperWidth = gridWrapper.clientWidth;
+    const gridWrapperHeight = gridWrapper.clientHeight;
 
     const maxCellSize = 48;
 
-    const cellSize = Math.min(containerWidth / gridWidth, containerHeight / gridHeight);
+    // Grid hücreleri arasındaki boşluk
+    const cellGap = parseFloat(window.getComputedStyle(gridContainer).gap);
 
-    const constrainedCellSize = Math.min(cellSize, maxCellSize);
+    // Grid boyutları ile hücre boyutlarını hesapla
+    const cellSizeWidth = (gridWrapperWidth - (gridWidth - 1) * cellGap) / gridWidth;
+    const cellSizeHeight = (gridWrapperHeight - (gridHeight - 1) * cellGap) / gridHeight;
 
-    gridContainer.style.gridTemplateColumns = `repeat(${gridWidth}, ${constrainedCellSize}px)`;
-    gridContainer.style.gridTemplateRows = `repeat(${gridHeight}, ${constrainedCellSize}px)`;
+    // Hücre boyutunu kısıtla
+    const cellSize = Math.min(cellSizeWidth, cellSizeHeight, maxCellSize);
 
-
+    // Grid container'ın hücre boyutlarını ayarla
+    gridContainer.style.gridTemplateColumns = `repeat(${gridWidth}, ${cellSize}px)`;
+    gridContainer.style.gridTemplateRows = `repeat(${gridHeight}, ${cellSize}px)`;
   }
 
   // Initial adjustment
