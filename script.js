@@ -4,8 +4,10 @@ const jsonData = [
   { "word": "AY", "x": 7, "y": 4, "direction": "vertical" },
   { "word": "HAVA", "x": 10, "y": 1, "direction": "vertical" },
   { "word": "AGAC", "x": 6, "y": 3, "direction": "horizontal" },
-  { "word": "CİCEK", "x": 9, "y": 3, "direction": "vertical" }
-];
+  { "word": "CİCEK", "x": 9, "y": 3, "direction": "vertical" },
+  // { "word": "YAGMUR", "x": 11, "y": 6, "direction": "vertical" },
+  // { "word": "GUNES", "x": 1, "y": 1, "direction": "horizontal" },
+]
 
 document.addEventListener('DOMContentLoaded', () => {
   const gridContainer = document.getElementById('grid-container');
@@ -13,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
 
-  // Kelimelerin kapladığı alanı hesapla
+  // Calculate the area occupied by the words
   jsonData.forEach((item) => {
     const { word, x, y, direction } = item;
     if (direction === "horizontal") {
@@ -29,11 +31,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  const gridWidth = maxX - minX + 1;
-  const gridHeight = maxY - minY + 1;
-
-  gridContainer.style.gridTemplateColumns = `repeat(${gridWidth}, 40px)`;
-  gridContainer.style.gridTemplateRows = `repeat(${gridHeight}, 40px)`;
+  // Determine grid size
+  const gridWidth = Math.min(maxX - minX + 1, 15);
+  const gridHeight = Math.min(maxY - minY + 1, 15);
 
   // Create the grid cells
   for (let i = 0; i < gridWidth * gridHeight; i++) {
@@ -90,10 +90,25 @@ document.addEventListener('DOMContentLoaded', () => {
     cell.addEventListener('click', removeLetter);
   });
 
-  const cellSize = 80;
-  const padding = 20;
-  gridContainer.style.width = `${gridWidth * cellSize + padding}px`;
-  gridContainer.style.height = `${gridHeight * cellSize + padding}px`;
+  function adjustCellSize() {
+    const containerWidth = gridContainer.clientWidth;
+    const containerHeight = gridContainer.clientHeight;
+
+    const maxCellSize = 48;
+
+    const cellSize = Math.min(containerWidth / gridWidth, containerHeight / gridHeight);
+
+    const constrainedCellSize = Math.min(cellSize, maxCellSize);
+
+    gridContainer.style.gridTemplateColumns = `repeat(${gridWidth}, ${constrainedCellSize}px)`;
+    gridContainer.style.gridTemplateRows = `repeat(${gridHeight}, ${constrainedCellSize}px)`;
+  }
+
+  // Initial adjustment
+  adjustCellSize();
+
+  // Adjust cell size on window resize
+  window.addEventListener('resize', adjustCellSize);
 });
 
 function dragStart(e) {
@@ -119,7 +134,7 @@ function drop(e) {
       target.classList.add('correct');
       target.classList.remove('incorrect');
 
-      // Doğru yerleştirme sesi çalar
+      // Play the correct placement sound
       correctSound.volume = 0.5;
       correctSound.currentTime = 0;
       correctSound.play();
@@ -127,7 +142,7 @@ function drop(e) {
       target.classList.add('incorrect');
       target.classList.remove('correct');
 
-      // Yanlış yerleştirme sesi çalar
+      // Play the incorrect placement sound
       incorrectSound.volume = 0.5;
       incorrectSound.currentTime = 0;
       incorrectSound.play();
