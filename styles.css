@@ -20,8 +20,6 @@ body {
     flex-direction: column;
     width: 64%;
     height: 100%;
-    margin-top: 20px;
-    margin-bottom: 20px;
     min-width: 300px;
 }
 
@@ -82,29 +80,28 @@ body {
 }
 
 #game-container {
-    position: relative;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
-    padding: 12px;
-    gap: 24px;
     background: #ffcc00;
     width: 100%;
     height: 100%;
+    padding: 24px;
     box-sizing: border-box;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 #grid-wrapper {
+    flex: 2;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 72%;
     height: 100%;
     box-sizing: border-box;
     background-color: #739b97;
     border-radius: 10px;
+    margin-right: 12px;
 }
 
 #grid-container {
@@ -156,22 +153,23 @@ body {
 }
 
 #letters-container {
+    flex: 0.5;
     display: flex;
-    flex: 1;
-    margin-top: 24px;
-    margin-bottom: 24px;
+    justify-content: center;
+    align-items: center;
     box-sizing: border-box;
+    background-color: #ffb3b3;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-left: 12px;
+    padding: 8px;
 }
 
 #letters {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 12px;
-    padding: 24px;
-    background-color: #ffb3b3;
     box-sizing: border-box;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .letter {
@@ -183,7 +181,7 @@ body {
     background-color: #ff6f91;
     border: 2px solid #ff6f91;
     border-radius: 8px;
-    font-size: 21px;
+    font-size: 20px;
     color: #ffffff;
     cursor: pointer;
     box-shadow: 0 2px 4px hsla(18, 93%, 67%, 0.2);
@@ -218,7 +216,7 @@ body {
         flex-wrap: wrap;
         justify-content: center;
         padding: 12px;
-        gap: 12px;
+        gap: 6px;
     }
 
     .letter {
@@ -250,7 +248,7 @@ body {
     }
 
     #letters {
-        gap: 12px;
+        gap: 6px;
     }
 
     .letter {
@@ -282,7 +280,7 @@ body {
     }
 
     #letters {
-        gap: 12px;
+        gap: 6px;
     }
 
     .letter {
@@ -314,7 +312,7 @@ body {
     }
 
     #letters {
-        gap: 12px;
+        gap: 6px;
     }
 
     .letter {
