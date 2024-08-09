@@ -102,6 +102,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     gridContainer.style.gridTemplateColumns = `repeat(${gridWidth}, ${constrainedCellSize}px)`;
     gridContainer.style.gridTemplateRows = `repeat(${gridHeight}, ${constrainedCellSize}px)`;
+
+
   }
 
   // Initial adjustment
