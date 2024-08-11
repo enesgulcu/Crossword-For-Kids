@@ -1,13 +1,12 @@
 const jsonData = [
-  { "word": "TABIAT", "x": 6, "y": 4, "direction": "horizontal" },
-  { "word": "DOGA", "x": 7, "y": 1, "direction": "vertical" },
-  { "word": "AY", "x": 7, "y": 4, "direction": "vertical" },
-  { "word": "HAVA", "x": 10, "y": 1, "direction": "vertical" },
-  { "word": "AGAC", "x": 6, "y": 3, "direction": "horizontal" },
-  { "word": "CİCEK", "x": 9, "y": 3, "direction": "vertical" },
-  { "word": "GUNES", "x": 1, "y": 1, "direction": "horizontal" },
-  { "word": "YAGMUR", "x": 1, "y": 10, "direction": "vertical" },
-  { "word": "TOPRAK", "x": 11, "y": 10, "direction": "horizontal" },
+  { "word": "TABIATAAAAAA", "x": 11, "y": 5, "direction": "horizontal" },
+  { "word": "TOPRAKAAAAA", "x": 16, "y": 5, "direction": "vertical" },
+  // { "word": "ORMAN", "x": 16, "y": 6, "direction": "horizontal" },
+  { "word": "CICEK", "x": 14, "y": 4, "direction": "vertical" },
+  { "word": "DAG", "x": 12, "y": 4, "direction": "vertical" },
+  // { "word": "YAMAC", "x": 9, "y": 8, "direction": "horizontal" },
+  { "word": "BAHCE", "x": 13, "y": 5, "direction": "vertical" },
+  // { "word": "KAR", "x": 16, "y": 10, "direction": "horizontal" }
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
