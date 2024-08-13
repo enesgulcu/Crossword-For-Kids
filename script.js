@@ -202,7 +202,7 @@ function checkCompletion() {
 
 function showCongratulations() {
   const congratulationsMessage = document.getElementById('congratulations-message');
-  const container = document.querySelectorAll('.container');
+  const container = document.getElementById('outer-container');
   const fireworksSound = document.getElementById('fireworks-sound');
 
   congratulationsMessage.style.display = 'block';
