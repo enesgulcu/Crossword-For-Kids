@@ -1,6 +1,6 @@
 const jsonData = [
-  { "word": "TABIATAAAAAA", "x": 11, "y": 5, "direction": "horizontal" },
-  { "word": "TOPRAKAAAAA", "x": 16, "y": 5, "direction": "vertical" },
+  { "word": "TABIAT", "x": 11, "y": 5, "direction": "horizontal" },
+  { "word": "TOPRAK", "x": 16, "y": 5, "direction": "vertical" },
   // { "word": "ORMAN", "x": 16, "y": 6, "direction": "horizontal" },
   { "word": "CICEK", "x": 14, "y": 4, "direction": "vertical" },
   { "word": "DAG", "x": 12, "y": 4, "direction": "vertical" },
@@ -157,6 +157,7 @@ function drop(e) {
     }
 
     target.dataset.userPlaced = 'true'; // Mark the cell as having a user-placed letter
+    checkCompletion();
   }
 }
 
@@ -173,4 +174,22 @@ function removeLetter(e) {
     removeSound.currentTime = 0;
     removeSound.play();
   }
+}
+
+function checkCompletion() {
+  const gridCells = document.querySelectorAll('.grid-cell');
+  const allCorrect = Array.from(gridCells).every(cell => {
+    return !cell.classList.contains('placeholder') || cell.classList.contains('correct');
+  });
+
+  if (allCorrect) {
+    showCongratulations();
+  }
+}
+
+function showCongratulations() {
+  congratulationsMessage.style.display = 'block';
+  fireworksSound.volume = 0.5;
+  fireworksSound.currentTime = 0;
+  fireworksSound.play();
 }
