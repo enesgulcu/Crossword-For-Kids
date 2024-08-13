@@ -1,18 +1,15 @@
 const jsonData = [
   { "word": "TABIAT", "x": 11, "y": 5, "direction": "horizontal" },
-  { "word": "TOPRAK", "x": 16, "y": 5, "direction": "vertical" },
-  // { "word": "ORMAN", "x": 16, "y": 6, "direction": "horizontal" },
-  { "word": "CICEK", "x": 14, "y": 4, "direction": "vertical" },
-  { "word": "DAG", "x": 12, "y": 4, "direction": "vertical" },
-  // { "word": "YAMAC", "x": 9, "y": 8, "direction": "horizontal" },
-  { "word": "BAHCE", "x": 13, "y": 5, "direction": "vertical" },
-  // { "word": "KAR", "x": 16, "y": 10, "direction": "horizontal" }
+  // { "word": "TOPRAK", "x": 16, "y": 5, "direction": "vertical" },
+  // { "word": "CICEK", "x": 14, "y": 4, "direction": "vertical" },
+  // { "word": "DAG", "x": 12, "y": 4, "direction": "vertical" },
+  // { "word": "BAHCE", "x": 13, "y": 5, "direction": "vertical" },
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
   const gridContainer = document.getElementById('grid-container');
   const lettersContainer = document.getElementById('letters');
-  const gridWrapper = document.getElementById('grid-wrapper')
+  const gridWrapper = document.getElementById('grid-wrapper');
 
   let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
 
@@ -157,6 +154,8 @@ function drop(e) {
     }
 
     target.dataset.userPlaced = 'true'; // Mark the cell as having a user-placed letter
+
+    // Check for completion after each drop
     checkCompletion();
   }
 }
@@ -178,9 +177,23 @@ function removeLetter(e) {
 
 function checkCompletion() {
   const gridCells = document.querySelectorAll('.grid-cell');
+
+  console.log('Grid Cells:', gridCells);
+
   const allCorrect = Array.from(gridCells).every(cell => {
-    return !cell.classList.contains('placeholder') || cell.classList.contains('correct');
+    const isCorrect = cell.classList.contains('correct');
+    const isHint = cell.classList.contains('hint');
+
+    console.log({
+      cellText: cell.innerText,
+      isCorrect: isCorrect,
+      isHint: isHint
+    });
+
+    return isCorrect || isHint;
   });
+
+  console.log('All Correct:', allCorrect);
 
   if (allCorrect) {
     showCongratulations();
@@ -188,8 +201,14 @@ function checkCompletion() {
 }
 
 function showCongratulations() {
+  const congratulationsMessage = document.getElementById('congratulations-message');
+  const container = document.querySelectorAll('.container');
+  const fireworksSound = document.getElementById('fireworks-sound');
+
   congratulationsMessage.style.display = 'block';
+  container.style.display = 'none';
   fireworksSound.volume = 0.5;
   fireworksSound.currentTime = 0;
   fireworksSound.play();
 }
+
