@@ -1,9 +1,9 @@
 const jsonData = [
   { "word": "TABIAT", "x": 11, "y": 5, "direction": "horizontal" },
-  // { "word": "TOPRAK", "x": 16, "y": 5, "direction": "vertical" },
-  // { "word": "CICEK", "x": 14, "y": 4, "direction": "vertical" },
-  // { "word": "DAG", "x": 12, "y": 4, "direction": "vertical" },
-  // { "word": "BAHCE", "x": 13, "y": 5, "direction": "vertical" },
+  { "word": "TOPRAK", "x": 16, "y": 5, "direction": "vertical" },
+  { "word": "CICEK", "x": 14, "y": 4, "direction": "vertical" },
+  { "word": "DAG", "x": 12, "y": 4, "direction": "vertical" },
+  { "word": "BAHCE", "x": 13, "y": 5, "direction": "vertical" },
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -178,22 +178,13 @@ function removeLetter(e) {
 function checkCompletion() {
   const gridCells = document.querySelectorAll('.grid-cell');
 
-  console.log('Grid Cells:', gridCells);
+  const letterCells = Array.from(gridCells).filter(cell => cell.dataset.letter);
 
-  const allCorrect = Array.from(gridCells).every(cell => {
+  const allCorrect = letterCells.every(cell => {
     const isCorrect = cell.classList.contains('correct');
     const isHint = cell.classList.contains('hint');
-
-    console.log({
-      cellText: cell.innerText,
-      isCorrect: isCorrect,
-      isHint: isHint
-    });
-
     return isCorrect || isHint;
   });
-
-  console.log('All Correct:', allCorrect);
 
   if (allCorrect) {
     showCongratulations();
