@@ -1,9 +1,15 @@
 const jsonData = [
-  { "word": "TABIAT", "x": 11, "y": 5, "direction": "horizontal" },
-  { "word": "TOPRAK", "x": 16, "y": 5, "direction": "vertical" },
-  { "word": "CICEK", "x": 14, "y": 4, "direction": "vertical" },
-  { "word": "DAG", "x": 12, "y": 4, "direction": "vertical" },
-  { "word": "BAHCE", "x": 13, "y": 5, "direction": "vertical" },
+
+  { "word": "FOG", "x": 12, "y": 4, "direction": "horizontal" },
+  // { "word": "TO", "x": 11, "y": 5, "direction": "horizontal" },
+  // { "word": "WHO", "x": 13, "y": 2, "direction": "vertical" },
+  // { "word": "FAX", "x": 10, "y": 6, "direction": "horizontal" },
+  // { "word": "TOY", "x": 14, "y": 6, "direction": "horizontal" },
+  // { "word": "TAG", "x": 11, "y": 5, "direction": "vertical" },
+  // { "word": "FOX", "x": 12, "y": 4, "direction": "vertical" },
+  // { "word": "FOR", "x": 15, "y": 5, "direction": "vertical" },
+  // { "word": "GOT", "x": 14, "y": 4, "direction": "vertical" }
+
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -195,11 +201,17 @@ function showCongratulations() {
   const congratulationsMessage = document.getElementById('congratulations-message');
   const container = document.getElementById('outer-container');
   const fireworksSound = document.getElementById('fireworks-sound');
+  const clapSound = document.getElementById('clap-sound');
 
   congratulationsMessage.style.display = 'block';
   container.style.display = 'none';
+
   fireworksSound.volume = 0.5;
   fireworksSound.currentTime = 0;
   fireworksSound.play();
+
+  clapSound.volume = 0.5;
+  clapSound.currentTime = 0;
+  clapSound.play();
 }
 
