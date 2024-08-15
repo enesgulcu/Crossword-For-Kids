@@ -1,15 +1,332 @@
 const jsonData = [
-
-  { "word": "FOG", "x": 12, "y": 4, "direction": "horizontal" },
-  // { "word": "TO", "x": 11, "y": 5, "direction": "horizontal" },
-  // { "word": "WHO", "x": 13, "y": 2, "direction": "vertical" },
-  // { "word": "FAX", "x": 10, "y": 6, "direction": "horizontal" },
-  // { "word": "TOY", "x": 14, "y": 6, "direction": "horizontal" },
-  // { "word": "TAG", "x": 11, "y": 5, "direction": "vertical" },
-  // { "word": "FOX", "x": 12, "y": 4, "direction": "vertical" },
-  // { "word": "FOR", "x": 15, "y": 5, "direction": "vertical" },
-  // { "word": "GOT", "x": 14, "y": 4, "direction": "vertical" }
-
+  {
+    "word": "WHO",
+    "x": 14,
+    "y": 0,
+    "direction": "vertical",
+    "hintCells": [
+      {
+        "x": 14,
+        "y": 2
+      }
+    ]
+  },
+  {
+    "word": "FOG",
+    "x": 13,
+    "y": 2,
+    "direction": "horizontal",
+    "hintCells": [
+      {
+        "x": 14,
+        "y": 2
+      },
+      {
+        "x": 13,
+        "y": 2
+      },
+      {
+        "x": 15,
+        "y": 2
+      }
+    ]
+  },
+  {
+    "word": "TOY",
+    "x": 15,
+    "y": 4,
+    "direction": "horizontal",
+    "hintCells": []
+  },
+  {
+    "word": "OF",
+    "x": 15,
+    "y": 3,
+    "direction": "horizontal",
+    "hintCells": []
+  },
+  {
+    "word": "TO",
+    "x": 12,
+    "y": 3,
+    "direction": "horizontal",
+    "hintCells": []
+  },
+  {
+    "word": "FOR",
+    "x": 16,
+    "y": 3,
+    "direction": "vertical",
+    "hintCells": []
+  },
+  {
+    "word": "TAG",
+    "x": 12,
+    "y": 3,
+    "direction": "vertical",
+    "hintCells": []
+  },
+  {
+    "word": "FOX",
+    "x": 13,
+    "y": 2,
+    "direction": "vertical",
+    "hintCells": [
+      {
+        "x": 13,
+        "y": 2
+      }
+    ]
+  },
+  {
+    "word": "FAX",
+    "x": 11,
+    "y": 4,
+    "direction": "horizontal",
+    "hintCells": []
+  },
+  {
+    "word": "GOT",
+    "x": 15,
+    "y": 2,
+    "direction": "vertical",
+    "hintCells": [
+      {
+        "x": 15,
+        "y": 2
+      }
+    ]
+  },
+  // {
+  //   "word": "TABIAT",
+  //   "x": 9,
+  //   "y": 2,
+  //   "direction": "horizontal",
+  //   "hintCells": [
+  //     {
+  //       "x": 10,
+  //       "y": 2
+  //     },
+  //     {
+  //       "x": 14,
+  //       "y": 2
+  //     },
+  //     {
+  //       "x": 11,
+  //       "y": 2
+  //     }
+  //   ]
+  // },
+  // {
+  //   "word": "CICEK",
+  //   "x": 12,
+  //   "y": 1,
+  //   "direction": "vertical",
+  //   "hintCells": []
+  // },
+  // {
+  //   "word": "BAHCE",
+  //   "x": 11,
+  //   "y": 2,
+  //   "direction": "vertical",
+  //   "hintCells": [
+  //     {
+  //       "x": 11,
+  //       "y": 2
+  //     }
+  //   ]
+  // },
+  // {
+  //   "word": "ORMAN",
+  //   "x": 14,
+  //   "y": 3,
+  //   "direction": "horizontal",
+  //   "hintCells": [
+  //     {
+  //       "x": 14,
+  //       "y": 3
+  //     }
+  //   ]
+  // },
+  // {
+  //   "word": "DAG",
+  //   "x": 10,
+  //   "y": 1,
+  //   "direction": "vertical",
+  //   "hintCells": [
+  //     {
+  //       "x": 10,
+  //       "y": 2
+  //     }
+  //   ]
+  // },
+  // {
+  //   "word": "AY",
+  //   "x": 15,
+  //   "y": 7,
+  //   "direction": "vertical",
+  //   "hintCells": []
+  // },
+  // {
+  //   "word": "KAR",
+  //   "x": 14,
+  //   "y": 7,
+  //   "direction": "horizontal",
+  //   "hintCells": [
+  //     {
+  //       "x": 14,
+  //       "y": 7
+  //     }
+  //   ]
+  // },
+  // {
+  //   "word": "TOPRAK",
+  //   "x": 14,
+  //   "y": 2,
+  //   "direction": "vertical",
+  //   "hintCells": [
+  //     {
+  //       "x": 14,
+  //       "y": 3
+  //     },
+  //     {
+  //       "x": 14,
+  //       "y": 6
+  //     },
+  //     {
+  //       "x": 14,
+  //       "y": 2
+  //     },
+  //     {
+  //       "x": 14,
+  //       "y": 7
+  //     }
+  //   ]
+  // },
+  // {
+  //   "word": "ELMAS",
+  //   "x": 11,
+  //   "y": 6,
+  //   "direction": "horizontal",
+  //   "hintCells": [
+  //     {
+  //       "x": 14,
+  //       "y": 6
+  //     }
+  //   ]
+  // },
+  // {
+  //   "word": "GUNDOGUMU",
+  //   "x": 10,
+  //   "y": 3,
+  //   "direction": "vertical",
+  //   "hintCells": [
+  //     {
+  //       "x": 10,
+  //       "y": 7
+  //     },
+  //     {
+  //       "x": 10,
+  //       "y": 10
+  //     },
+  //     {
+  //       "x": 10,
+  //       "y": 11
+  //     }
+  //   ]
+  // },
+  // {
+  //   "word": "DUMAN",
+  //   "x": 6,
+  //   "y": 5,
+  //   "direction": "horizontal",
+  //   "hintCells": [
+  //     {
+  //       "x": 6,
+  //       "y": 5
+  //     }
+  //   ]
+  // },
+  // {
+  //   "word": "GOLGE",
+  //   "x": 10,
+  //   "y": 8,
+  //   "direction": "horizontal",
+  //   "hintCells": [
+  //     {
+  //       "x": 13,
+  //       "y": 8
+  //     }
+  //   ]
+  // },
+  // {
+  //   "word": "DURU",
+  //   "x": 7,
+  //   "y": 11,
+  //   "direction": "horizontal",
+  //   "hintCells": [
+  //     {
+  //       "x": 10,
+  //       "y": 11
+  //     }
+  //   ]
+  // },
+  // {
+  //   "word": "UMUT",
+  //   "x": 10,
+  //   "y": 9,
+  //   "direction": "vertical",
+  //   "hintCells": [
+  //     {
+  //       "x": 10,
+  //       "y": 10
+  //     },
+  //     {
+  //       "x": 10,
+  //       "y": 11
+  //     }
+  //   ]
+  // },
+  // {
+  //   "word": "KANO",
+  //   "x": 7,
+  //   "y": 7,
+  //   "direction": "horizontal",
+  //   "hintCells": [
+  //     {
+  //       "x": 10,
+  //       "y": 7
+  //     }
+  //   ]
+  // },
+  // {
+  //   "word": "GEMİ",
+  //   "x": 13,
+  //   "y": 8,
+  //   "direction": "vertical",
+  //   "hintCells": [
+  //     {
+  //       "x": 13,
+  //       "y": 8
+  //     }
+  //   ]
+  // },
+  // {
+  //   "word": "GÖZLEM",
+  //   "x": 5,
+  //   "y": 10,
+  //   "direction": "horizontal",
+  //   "hintCells": [
+  //     {
+  //       "x": 10,
+  //       "y": 10
+  //     },
+  //     {
+  //       "x": 5,
+  //       "y": 10
+  //     }
+  //   ]
+  // }
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -49,7 +366,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const gridCells = document.querySelectorAll('.grid-cell');
 
   jsonData.forEach((item) => {
-    const { word, x, y, direction } = item;
+    const { word, x, y, direction, hintCells } = item;
     let row = y - minY;
     let col = x - minX;
 
@@ -61,8 +378,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const cell = gridCells[index];
         cell.classList.add('placeholder');
         cell.dataset.letter = word[i];
+        cell.dataset.word = item.word; // Store the word for each cell
 
-        if (i === Math.floor(word.length / 2)) {
+        // Check if current cell is in the hintCells array
+        const isHintCell = hintCells.some(hint => hint.x === (x + (direction === 'horizontal' ? i : 0)) && hint.y === (y + (direction === 'vertical' ? i : 0)));
+        if (isHintCell) {
           cell.innerText = word[i];
           cell.classList.add('hint');
         }
@@ -214,4 +534,3 @@ function showCongratulations() {
   clapSound.currentTime = 0;
   clapSound.play();
 }
-
