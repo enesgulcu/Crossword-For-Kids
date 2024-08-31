@@ -97,236 +97,6 @@ const jsonData = [
       }
     ]
   },
-  // {
-  //   "word": "TABIAT",
-  //   "x": 9,
-  //   "y": 2,
-  //   "direction": "horizontal",
-  //   "hintCells": [
-  //     {
-  //       "x": 10,
-  //       "y": 2
-  //     },
-  //     {
-  //       "x": 14,
-  //       "y": 2
-  //     },
-  //     {
-  //       "x": 11,
-  //       "y": 2
-  //     }
-  //   ]
-  // },
-  // {
-  //   "word": "CICEK",
-  //   "x": 12,
-  //   "y": 1,
-  //   "direction": "vertical",
-  //   "hintCells": []
-  // },
-  // {
-  //   "word": "BAHCE",
-  //   "x": 11,
-  //   "y": 2,
-  //   "direction": "vertical",
-  //   "hintCells": [
-  //     {
-  //       "x": 11,
-  //       "y": 2
-  //     }
-  //   ]
-  // },
-  // {
-  //   "word": "ORMAN",
-  //   "x": 14,
-  //   "y": 3,
-  //   "direction": "horizontal",
-  //   "hintCells": [
-  //     {
-  //       "x": 14,
-  //       "y": 3
-  //     }
-  //   ]
-  // },
-  // {
-  //   "word": "DAG",
-  //   "x": 10,
-  //   "y": 1,
-  //   "direction": "vertical",
-  //   "hintCells": [
-  //     {
-  //       "x": 10,
-  //       "y": 2
-  //     }
-  //   ]
-  // },
-  // {
-  //   "word": "AY",
-  //   "x": 15,
-  //   "y": 7,
-  //   "direction": "vertical",
-  //   "hintCells": []
-  // },
-  // {
-  //   "word": "KAR",
-  //   "x": 14,
-  //   "y": 7,
-  //   "direction": "horizontal",
-  //   "hintCells": [
-  //     {
-  //       "x": 14,
-  //       "y": 7
-  //     }
-  //   ]
-  // },
-  // {
-  //   "word": "TOPRAK",
-  //   "x": 14,
-  //   "y": 2,
-  //   "direction": "vertical",
-  //   "hintCells": [
-  //     {
-  //       "x": 14,
-  //       "y": 3
-  //     },
-  //     {
-  //       "x": 14,
-  //       "y": 6
-  //     },
-  //     {
-  //       "x": 14,
-  //       "y": 2
-  //     },
-  //     {
-  //       "x": 14,
-  //       "y": 7
-  //     }
-  //   ]
-  // },
-  // {
-  //   "word": "ELMAS",
-  //   "x": 11,
-  //   "y": 6,
-  //   "direction": "horizontal",
-  //   "hintCells": [
-  //     {
-  //       "x": 14,
-  //       "y": 6
-  //     }
-  //   ]
-  // },
-  // {
-  //   "word": "GUNDOGUMU",
-  //   "x": 10,
-  //   "y": 3,
-  //   "direction": "vertical",
-  //   "hintCells": [
-  //     {
-  //       "x": 10,
-  //       "y": 7
-  //     },
-  //     {
-  //       "x": 10,
-  //       "y": 10
-  //     },
-  //     {
-  //       "x": 10,
-  //       "y": 11
-  //     }
-  //   ]
-  // },
-  // {
-  //   "word": "DUMAN",
-  //   "x": 6,
-  //   "y": 5,
-  //   "direction": "horizontal",
-  //   "hintCells": [
-  //     {
-  //       "x": 6,
-  //       "y": 5
-  //     }
-  //   ]
-  // },
-  // {
-  //   "word": "GOLGE",
-  //   "x": 10,
-  //   "y": 8,
-  //   "direction": "horizontal",
-  //   "hintCells": [
-  //     {
-  //       "x": 13,
-  //       "y": 8
-  //     }
-  //   ]
-  // },
-  // {
-  //   "word": "DURU",
-  //   "x": 7,
-  //   "y": 11,
-  //   "direction": "horizontal",
-  //   "hintCells": [
-  //     {
-  //       "x": 10,
-  //       "y": 11
-  //     }
-  //   ]
-  // },
-  // {
-  //   "word": "UMUT",
-  //   "x": 10,
-  //   "y": 9,
-  //   "direction": "vertical",
-  //   "hintCells": [
-  //     {
-  //       "x": 10,
-  //       "y": 10
-  //     },
-  //     {
-  //       "x": 10,
-  //       "y": 11
-  //     }
-  //   ]
-  // },
-  // {
-  //   "word": "KANO",
-  //   "x": 7,
-  //   "y": 7,
-  //   "direction": "horizontal",
-  //   "hintCells": [
-  //     {
-  //       "x": 10,
-  //       "y": 7
-  //     }
-  //   ]
-  // },
-  // {
-  //   "word": "GEMİ",
-  //   "x": 13,
-  //   "y": 8,
-  //   "direction": "vertical",
-  //   "hintCells": [
-  //     {
-  //       "x": 13,
-  //       "y": 8
-  //     }
-  //   ]
-  // },
-  // {
-  //   "word": "GÖZLEM",
-  //   "x": 5,
-  //   "y": 10,
-  //   "direction": "horizontal",
-  //   "hintCells": [
-  //     {
-  //       "x": 10,
-  //       "y": 10
-  //     },
-  //     {
-  //       "x": 5,
-  //       "y": 10
-  //     }
-  //   ]
-  // }
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -482,7 +252,7 @@ function drop(e) {
     target.dataset.userPlaced = 'true'; // Mark the cell as having a user-placed letter
 
     // Check for completion after each drop
-    checkCompletion();
+    updateProgressBar();
   }
 }
 
@@ -498,24 +268,41 @@ function removeLetter(e) {
     removeSound.volume = 0.5;
     removeSound.currentTime = 0;
     removeSound.play();
+
+    updateProgressBar();
   }
 }
 
-function checkCompletion() {
+function updateProgressBar() {
   const gridCells = document.querySelectorAll('.grid-cell');
+  const letterCells = Array.from(gridCells).filter(cell => cell.dataset.letter && !cell.classList.contains('hint'));
+  const correctCells = Array.from(letterCells).filter(cell => cell.classList.contains('correct'));
 
-  const letterCells = Array.from(gridCells).filter(cell => cell.dataset.letter);
+  const totalCells = letterCells.length;
+  const correctCount = correctCells.length;
 
-  const allCorrect = letterCells.every(cell => {
-    const isCorrect = cell.classList.contains('correct');
-    const isHint = cell.classList.contains('hint');
-    return isCorrect || isHint;
-  });
+  const progressBar = document.getElementById('progress-bar');
+  const percentageText = document.getElementById('percentage');
 
-  if (allCorrect) {
+  if (!progressBar || !percentageText) {
+    console.error('Progress bar or percentage text element not found!');
+    return;
+  }
+
+  const percentage = totalCells === 0 ? 0 : (correctCount / totalCells) * 100;
+
+  // Update the progress bar width
+  progressBar.style.width = percentage + '%';
+
+  // Update the percentage text
+  percentageText.textContent = Math.round(percentage) + '%';
+
+  // Check if the progress is complete
+  if (totalCells === correctCount) {
     showCongratulations();
   }
 }
+
 
 function showCongratulations() {
   const congratulationsMessage = document.getElementById('congratulations-message');

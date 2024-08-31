@@ -3,11 +3,11 @@ body {
     align-items: center;
     margin: 6px;
     padding: 0;
-    background: url('assets/background.jpg') no-repeat center center fixed;
+    background: url('https://img.freepik.com/free-vector/watercolor-world-children-s-day-background_23-2149750597.jpg?t=st=1724250128~exp=1724253728~hmac=35852abd236609dc59df3b518671e7cb38c3d726fef7bec73b1a7c3ba723fbea&w=1480') no-repeat center center fixed;
     background-size: cover;
     font-family: 'Indie Flower', cursive;
     font-weight: bold;
-    min-height: 100vh;
+    min-height: 100%;
     user-select: none;
     min-width: 320px;
 }
@@ -17,12 +17,12 @@ body {
     justify-content: center;
     flex-direction: column;
     width: 64%;
+    
 }
 
 #title-container {
     display: flex;
     align-items: center;
-    color: #ff6f61;
     padding: 10px;
     width: 100%;
     text-align: center;
@@ -32,7 +32,7 @@ body {
 .title {
     font-family: 'Dancing Script', cursive;
     font-size: 72px;
-    color: #ff6f61;
+    color: #528dc0;
     font-weight: bold;
     margin-bottom: 10px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
@@ -41,7 +41,7 @@ body {
 .subtitle {
     font-family: 'Dancing Script', cursive;
     font-size: 48px;
-    color: #ff6f61;
+    color: #528dc0;
     font-weight: bold;
     margin-bottom: 20px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
@@ -50,7 +50,7 @@ body {
 .description {
     font-family: 'Dancing Script', cursive;
     font-size: 24px;
-    color: #ff6f61;
+    color: #528dc0;
     font-weight: bold;
     margin-bottom: 10px;
     text-align: center;
@@ -59,21 +59,81 @@ body {
 #words-container {
     display: flex;
     align-items: center;
-    background-color: #8cc076;
+    background-color: #4682b4;
     color: #ffffff;
     padding: 10px;
     width: 100%;
     height: 80px;
     text-align: center;
     border-radius: 10px;
+    box-sizing: border-box;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#progress-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    text-align: center;
+    position: relative;
+    background-color: #4682b4;
+}
+
+#progress-bar-container {
+    position: relative;
+    width: 100%;
+    height: 30px;
+}
+
+#progress-bar {
+    height: 100%;
+    background: linear-gradient(to right, #d8ed34, #a3c827);
+    border-radius: 10px;
+    width: 0%;
+    transition: width 0.5s ease-in-out;
+    box-shadow: 0 0 10px rgba(77, 226, 77, 0.6);
+    position: relative;
+}
+
+#percentage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+    pointer-events: none;
+    z-index: 1;
+}
+
+
+#progress-bar::-webkit-progress-bar {
+    background: transparent;
+}
+
+#progress-bar::-webkit-progress-value {
+    background: linear-gradient(to right, #d8ed34, #a3c827);
+}
+
+#progress-bar::-moz-progress-bar {
+    background: linear-gradient(to right, #d8ed34, #a3c827);
 }
 
 #game-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #ffcc00;
+    background: #4682b4;
     width: 100%;
     height: 100%;
     padding: 16px;
@@ -86,7 +146,7 @@ body {
     flex: 1;
     display: flex;
     height: 100%;
-    background-color: #739b97;
+    background-color: #87cefa;
     border-radius: 10px;
     padding: 12px 12px;
     margin-right: 12px;
@@ -108,31 +168,32 @@ body {
     justify-content: center;
     align-items: center;
     font-size: 16px;
+    color: #ffffff;
     cursor: pointer;
     aspect-ratio: 1 / 1;
 }
 
 .grid-cell.placeholder {
-    background-color: #fff;
-    border: 2px solid #c1c8e4;
+    background-color: #e1f5fe;
+    border: 2px solid #039be5;
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
 }
 
 .grid-cell.hint {
-    background-color: #76c7c0;
+    background-color: #039be5;
     font-weight: bold;
     cursor: default;
-    box-shadow: 0 0 12px rgba(118, 199, 192, 0.5);
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
 }
 
 .grid-cell.correct {
-    background-color: #76c7c0;
-    border: 2px solid #4f8a8b;
+    background-color: #4fc3f7;
+    border: 2px solid #0288d1;
 }
 
 .grid-cell.incorrect {
-    background-color: #f57b7b;
-    border: 2px solid #d9534f;
+    background-color: #ff1e00;
+    border: 2px solid #9a0000;
 }
 
 #letters-container {
@@ -140,7 +201,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #ffb3b3;
+    background-color: #d8ed34;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     margin-left: 12px;
@@ -160,20 +221,22 @@ body {
     align-items: center;
     width: 42px;
     height: 42px;
-    background-color: #ff6f91;
-    border: 2px solid #ff6f91;
+    background-color: #03a9f4;
+    /* Bright blue */
+    border: 2px solid #0288d1;
+    /* Darker blue */
     border-radius: 8px;
     font-size: 20px;
     color: #ffffff;
     cursor: pointer;
-    box-shadow: 0 2px 4px hsla(18, 93%, 67%, 0.2);
+    box-shadow: 0 2px 4px hsla(200, 100%, 70%, 0.2);
     transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
 }
 
 .letter:hover {
-    background-color: #ff9472;
+    background-color: #039be5;
     transform: scale(1.1);
-    box-shadow: 0 0 12px rgba(255, 148, 114, 0.5);
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
 }
 
 #congratulations-message {
@@ -184,9 +247,9 @@ body {
     margin: 20px auto;
     text-align: center;
     font-family: 'Dancing Script', cursive;
-    color: #ff6f61;
+    color: #0288d1;
+    /* Blue */
 }
-
 
 #congratulations-message h1 {
     font-size: 3em;
@@ -230,6 +293,7 @@ body {
 
     .description {
         font-size: 20px;
+
     }
 
     #congratulations-message {
@@ -301,13 +365,13 @@ body {
 
     #grid-wrapper {
         flex: 1;
-        padding: 12px 12px;
+        padding: 12px;
         margin-bottom: 12px;
     }
 
     #letters-container {
         flex: 1;
-        margin-left: 40;
+        margin-left: 40px;
         padding: 12px;
     }
 
@@ -317,7 +381,6 @@ body {
         justify-content: center;
         gap: 12px;
     }
-
 
     .title {
         font-size: 50px;
@@ -357,8 +420,8 @@ body {
 
     #letters-container {
         flex: 1;
-        margin-left: 0;
-        padding: 18px;
+        margin-left: 40px;
+        padding: 12px;
     }
 
     #letters {
@@ -366,12 +429,6 @@ body {
         flex-wrap: wrap;
         justify-content: center;
         gap: 12px;
-    }
-
-    .letter {
-        width: 36px;
-        height: 36px;
-        font-size: 18px;
     }
 
     .title {
@@ -387,8 +444,7 @@ body {
     }
 
     #congratulations-message {
-        width: 95%;
-        padding: 15px;
+        width: 100%;
     }
 
     #congratulations-message h1 {
@@ -403,35 +459,30 @@ body {
 @media (max-width: 768px) {
     .container {
         width: 100%;
+        padding: 0 5%;
     }
 
     #grid-wrapper {
         flex: 1;
-        padding: 12px 12px;
+        padding: 12px;
         margin-bottom: 12px;
     }
 
     #letters-container {
         flex: 1;
         margin-left: 0;
-        padding: 18px;
+        padding: 12px;
     }
 
     #letters {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 6px;
-    }
-
-    .letter {
-        width: 36px;
-        height: 36px;
-        font-size: 18px;
+        gap: 8px;
     }
 
     .title {
-        font-size: 32px;
+        font-size: 30px;
     }
 
     .subtitle {
@@ -443,12 +494,11 @@ body {
     }
 
     #congratulations-message {
-        width: 95%;
-        padding: 12px;
+        width: 100%;
     }
 
     #congratulations-message h1 {
-        font-size: 1.6em;
+        font-size: 1.5em;
     }
 
     #congratulations-message p {
